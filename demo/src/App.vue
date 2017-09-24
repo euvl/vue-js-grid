@@ -1,0 +1,109 @@
+<template>
+  <div id="app">
+    <div>
+      <div style="position: relative; padding: 10px; box-sizing: border-box;">
+        <Icon :color="selected" style="width: auto;">
+          Color
+        </Icon>
+      </div>
+    </div>
+    <grid
+      :center="false"
+      :draggable="true"
+      :sortable="true"
+      :drag-delay="100"
+      :items="items"
+      :height="80"
+      :width="80"
+      @change="change"
+      @remove="remove"
+      @click="click"
+      @sort="sort">
+      <template slot="cell" scope="scope">
+        <Icon :color="scope.item.color"
+              :index="scope.index"
+              :with-button="true"
+              @remove="scope.remove()"/>
+      </template>
+    </grid>
+<!--
+    <grid
+      :center="false"
+      :draggable="true"
+      :sortable="true"
+      :items="items"
+      @change="change"
+      @remove="remove"
+      @sort="sort">
+      <template slot="cell" scope="scope">
+        <Icon :index="scope.index">
+          {{scope.index}} / {{scope.sort}}
+        </Icon>
+      </template>
+    </grid>
+-->
+  </div>
+</template>
+
+<script>
+import Icon from './Icon.vue'
+import { generateRGBColors } from './util'
+
+export default {
+  name: 'app',
+  components: {
+    Icon
+  },
+  data () {
+    let colors = generateRGBColors(20)
+    let items = colors.map((color, index) => {
+      return { color, index }
+    })
+
+    return {
+      items,
+      selected: null
+    }
+  },
+
+  mounted () {
+    /*
+    setInterval(() => {
+      let item = {
+        color:  generateRGBColors(1)[0],
+        index: this.items.length
+      }
+      this.items.push(item)
+    }, 5000)
+    */
+  },
+
+  methods: {
+    click ({ items, index }) {
+      let item = items.find(v => v.index === index)
+      this.selected = item.color
+    },
+
+    change (event) {
+      console.log('change', event)
+    },
+
+    remove (event) {
+      console.log('remove', event)
+    },
+
+    sort (event) {
+      console.log('sort', event)
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+</style>
