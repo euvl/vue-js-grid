@@ -31,7 +31,9 @@ import GridItem from './GridItem.vue'
 export default {
   name: 'Grid',
   mixins: [windowSize],
-  components: { GridItem },
+  components: {
+    GridItem
+  },
   props: {
     items: {
       type: Array,

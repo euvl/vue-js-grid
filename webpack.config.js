@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -38,8 +39,9 @@ module.exports = {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
+    new UglifyJSPlugin({
+      mangle: false,
+      beautify: true
     })
   ]
 }
