@@ -449,7 +449,7 @@
                     this.shiftStartX = 0, this.shiftStartY = 0, document.removeEventListener("mousemove", this.documentMouseMove), 
                     document.removeEventListener("mouseup", this.documentMouseUp);
                     var $event = this.wrapEvent(event);
-                    distance < 2 && this.$emit("click", $event), this.$emit("dragend", $event);
+                    distance < 5 && this.$emit("click", $event), this.$emit("dragend", $event);
                 }
             }
         };

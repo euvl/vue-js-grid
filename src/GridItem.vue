@@ -8,7 +8,7 @@
 </template>
 
 <script>
-const CLICK_PIXEL_DISTANCE = 2
+const CLICK_PIXEL_DISTANCE = 5
 
 export default {
   name: 'GridItem',

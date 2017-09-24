@@ -2,7 +2,7 @@
   <div class="icon" :style="style">
     <div v-if="withButton"
          class="icon-delete-btn"
-         @mousedown.stop="remove"></div>
+         @mousedown="remove"></div>
     <slot/>
   </div>
 </template>

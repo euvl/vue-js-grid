@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <div style="position: relative; padding: 10px; box-sizing: border-box;">
+      <div class="color-header">
         <Icon :color="selected" style="width: auto;">
           Color
         </Icon>
@@ -11,7 +11,6 @@
       :center="false"
       :draggable="true"
       :sortable="true"
-      :drag-delay="100"
       :items="items"
       :height="80"
       :width="80"
@@ -105,5 +104,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.color-header {
+  position: relative;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 </style>
