@@ -1,4 +1,4 @@
-### vue-js-grid
+## Vue.js Grid
 
 #### Fixed size grid for Vue.js
 
