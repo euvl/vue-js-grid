@@ -1,10 +1,17 @@
 ## Vue.js Grid
 
+[![npm version](https://badge.fury.io/js/vue-js-grid.svg)](https://badge.fury.io/js/vue-js-grid)
+[![npm](https://img.shields.io/npm/dm/vue-js-grid.svg)](https://www.npmjs.com/package/vue-js-grid)
+
 #### Fixed size grid for Vue.js
 
 This is very a first version of the plugin. If you find any bugs and/or want to contribute, feel free to create issues, PRs or reach me out on twitter! 👍 🚀
 
 Thanks!
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/1577802/30805846-45ccd718-a1eb-11e7-9963-7aee8e76c9b0.gif">
+</p>
 
 ### Install
 ```
