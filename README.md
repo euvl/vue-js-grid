@@ -61,22 +61,22 @@ Plugin does **NOT** modify the source data array.
 
 | Name       | Type     | Default   | Description       |
 | ---        | ---      | ---       | ---               |
-| items      | [Object] | []        | |
-| cellWidth  | Number   | 80        | |
-| cellHeight | Number   | 80        | |
-| draggable  | Boolean  | false     | |
+| items      | Array    | []        | Initial array of items |
+| cellWidth  | Number   | 80        | Cell width |
+| cellHeight | Number   | 80        | Cell height |
+| draggable  | Boolean  | false     | Flag that will let you drag grid's cells |
 | dragDelay  | Number   | 0         | @TODO |
-| sortable   | Boolean  | false     | |
+| sortable   | Boolean  | false     | Flag that will let you reorder grid's cells, requires `draggable` to be `true` |
 | center     | Boolean  | false     | @TODO |
 
 ### Events
 
 | Name    | Description |
 | ---     | ---         |
-| @change | |
-| @remove | |
-| @click  | |
-| @sort   | |
+| @change | Occurs on every action that involves reordering array or changing it's length |
+| @remove | Occurs when an element is deleted through template |
+| @click  | Occurs when cell is clicked |
+| @sort   | Occurs when array item order is changed manually |
 
 ### Cell template
 
