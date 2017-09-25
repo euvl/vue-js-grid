@@ -51,6 +51,12 @@ data () {
 </grid>
 ```
 
+Plugin does **NOT** modify the source data array.
+
+1. Every time permutation is performed you will get a new sorted array in event (`items`).
+2. The same works for removing elements, you will get a new "cleaned" array in your `@remove` event handler.
+3. Currently there is no way to extend data array after event handling. But hopefully I'll come up with a clean way to do it in nearest future.
+
 ### Props
 
 | Name       | Type     | Default   | Description       |
@@ -95,6 +101,12 @@ Example:
     <div>{{props.index}} / {{props.sort}}</div>
 </template>
 ```
+
+### Why do i need this?
+
+A good example of using a plugin would be rending macOS' `Launchpad` or `Dock`. Check out a demo for a solid example of how the plugin behaves & feels.
+
+Demo: https://euvl.github.io/vue-js-grid/
 
 ### Roadmap
 
