@@ -265,14 +265,13 @@
                 wrapEvent: function() {
                     var other = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
                     return _extends({
+                        datetime: Date.now(),
                         items: this.getListClone()
                     }, other);
                 },
                 getListClone: function() {
                     return this.list.slice(0).sort(function(a, b) {
                         return a.sort - b.sort;
-                    }).map(function(v) {
-                        return _extends({}, v.item);
                     });
                 },
                 removeItem: function(_ref) {

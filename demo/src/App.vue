@@ -76,8 +76,8 @@ export default {
 
   methods: {
     click ({ items, index }) {
-      let color = items.find(v => v.index === index)
-      this.selected = color
+      let value = items.find(v => v.index === index)
+      this.selected = value.item
 
       console.log(this.selected)
     },

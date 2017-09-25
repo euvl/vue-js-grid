@@ -4,7 +4,6 @@
          class="icon-delete-btn"
          @mousedown="remove"></div>
     <slot>
-      {{index}}
     </slot>
   </div>
 </template>
@@ -82,7 +81,7 @@ export default {
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.07);
   color: #777;
 
-  font-weight: 300;
+  font-weight: 900;
   font-size: 12px;
 
   line-height: 52px;
