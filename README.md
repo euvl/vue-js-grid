@@ -14,6 +14,32 @@ import Grid from 'vue-js-grid'
 Vue.use(Grid)
 ```
 
+### Usage
+
+```js
+data () {
+  return {
+    items: [
+      'a', 
+      'b', 
+      'c'
+    ]
+}
+```
+
+```vue
+<grid
+  :draggable="true"
+  :sortable="true"
+  :items="items"
+  :height="100"
+  :width="100">
+  <template slot="cell" scope="props">
+    <div>{{props.item.value}}</div>
+  </template>
+</grid>
+```
+
 ### Props
 
 | Name       | Type     | Default   | Description       |
@@ -35,31 +61,6 @@ Vue.use(Grid)
 | @click  | |
 | @sort   | |
 
-### Example
-
-```js
-data () {
-  return {
-    items: [
-      { value: 'a', index: 0 }, 
-      { value: 'b', index: 1 }, 
-      { value: 'c', index: 2 }
-    ]
-}
-```
-
-```vue
-<grid
-  :draggable="true"
-  :sortable="true"
-  :items="items"
-  :height="100"
-  :width="100">
-  <template slot="cell" scope="props">
-    <div>{{props.item.value}}</div>
-  </template>
-</grid>
-```
 
 ### Roadmap
 
