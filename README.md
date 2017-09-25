@@ -71,9 +71,12 @@ Cell template is used to get access to list data, indexing and sorting params ge
 
 Template's scope contains:
 
-`props.item` - list item value
+`props.item` - list item value 
+
 `props.index` - initial index of the item
+
 `props.sort` - current index of an item after sorting
+
 `props.remove()` - method that will remove item from the arrey and resport list.
 
 Example:
