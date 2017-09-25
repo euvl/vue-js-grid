@@ -3,8 +3,9 @@
 Fixed size grid for Vue.js
 
 ### Install
-
+```
 npm install --save vue-js-grid
+```
 
 ```js
 import Vue from 'vue'
@@ -38,7 +39,12 @@ Vue.use(Grid)
 
 ```js
 data () {
-  return ['a', 'b', 'c']
+  return {
+    items: [
+      { value: 'a', index: 0 }, 
+      { value: 'b', index: 1 }, 
+      { value: 'c', index: 2 }
+    ]
 }
 ```
 
@@ -47,14 +53,10 @@ data () {
   :draggable="true"
   :sortable="true"
   :items="items"
-  :height="80"
-  :width="80"
-  @change="change"
-  @remove="remove"
-  @click="click"
-  @sort="sort">
+  :height="100"
+  :width="100">
   <template slot="cell" scope="props">
-    <div>{{props.item}}</div>
+    <div>{{props.item.value}}</div>
   </template>
 </grid>
 ```
