@@ -116,7 +116,7 @@ export default {
     /* Returns merged event object */
     wrapEvent (other = {}) {
       return {
-    //    datetime: Date.now(),
+        datetime: Date.now(),
         items: this.getListClone(),
         ...other
       }
@@ -128,9 +128,9 @@ export default {
         .sort((a, b) => {
           return a.sort - b.sort
         })
-        .map(v => {
-          return { ...v.item }
-        })
+      //  .map(v => {
+      //    return { ...v.item }
+      //  })
     },
 
     removeItem ({ index }) {
@@ -176,10 +176,14 @@ export default {
       let targetItem = this.list.find(item => item.index === itemIndex)
       let targetItemSort = targetItem.sort
 
-      // Normalizing new grid position
+      /*
+        Normalizing new grid position
+      */
       gridPosition = Math.max(gridPosition, 0)
-      // If you remove this line you can drag items to positions that
-      // are further than items array length
+      /*
+        If you remove this line you can drag items to positions that
+        are further than items array length
+      */
       gridPosition = Math.min(gridPosition, this.list.length - 1)
 
       if (targetItemSort !== gridPosition) {

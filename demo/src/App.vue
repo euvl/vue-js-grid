@@ -76,8 +76,10 @@ export default {
 
   methods: {
     click ({ items, index }) {
-      let item = items.find(v => v.index === index)
-      this.selected = item.color
+      let color = items.find(v => v.index === index)
+      this.selected = color
+
+      console.log(this.selected)
     },
 
     change (event) {

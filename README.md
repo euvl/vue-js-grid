@@ -1,6 +1,10 @@
 ### vue-js-grid
 
-Fixed size grid for Vue.js
+#### Fixed size grid for Vue.js
+
+This is very a first version of the plugin. If you find any bugs and/or want to contribute, feel free to create issues, PRs or reach me out on twitter! 👍 🚀
+
+Thanks!
 
 ### Install
 ```
@@ -20,8 +24,8 @@ Vue.use(Grid)
 data () {
   return {
     items: [
-      'a', 
-      'b', 
+      'a',
+      'b',
       'c'
     ]
 }
@@ -35,7 +39,7 @@ data () {
   :height="100"
   :width="100">
   <template slot="cell" scope="props">
-    <div>{{props.item.value}}</div>
+    <div>{{props.item}}</div>
   </template>
 </grid>
 ```

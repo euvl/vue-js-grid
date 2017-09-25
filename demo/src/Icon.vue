@@ -3,7 +3,9 @@
     <div v-if="withButton"
          class="icon-delete-btn"
          @mousedown="remove"></div>
-    <slot/>
+    <slot>
+      {{index}}
+    </slot>
   </div>
 </template>
 
@@ -28,9 +30,8 @@ export default {
   computed: {
     brightness () {
       let { r, g, b } = this.color
-      let brightness = 0.299 * r + 0.587 * g + 0.114 * b
 
-      return brightness
+      return 0.299 * r + 0.587 * g + 0.114 * b
     },
     style () {
       if (this.color) {
@@ -81,7 +82,7 @@ export default {
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.07);
   color: #777;
 
-  font-weight: 900;
+  font-weight: 300;
   font-size: 12px;
 
   line-height: 52px;
