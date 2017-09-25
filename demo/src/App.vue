@@ -11,18 +11,18 @@
       :center="false"
       :draggable="true"
       :sortable="true"
-      :items="items"
+      :items="colors"
       :height="80"
       :width="80"
       @change="change"
       @remove="remove"
       @click="click"
       @sort="sort">
-      <template slot="cell" scope="scope">
-        <Icon :color="scope.item.color"
-              :index="scope.index"
+      <template slot="cell" scope="props">
+        <Icon :color="props.item"
+              :index="props.index"
               :with-button="true"
-              @remove="scope.remove()"/>
+              @remove="props.remove()"/>
       </template>
     </grid>
 <!--
@@ -55,12 +55,9 @@ export default {
   },
   data () {
     let colors = generateRGBColors(20)
-    let items = colors.map((color, index) => {
-      return { color, index }
-    })
 
     return {
-      items,
+      colors,
       selected: null
     }
   },

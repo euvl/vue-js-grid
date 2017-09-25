@@ -72,11 +72,11 @@ export default {
   watch: {
     items: {
       handler: function (nextItems = []) {
-        this.list = nextItems.map(item => {
+        this.list = nextItems.map((item, index) => {
           return {
             item,
-            index: item.index,
-            sort: item.index
+            index: index,
+            sort: index
           }
         })
       },
@@ -173,8 +173,7 @@ export default {
     },
 
     sortList (itemIndex, gridPosition) {
-      let targetItem = this.list
-        .find(item => item.index === itemIndex)
+      let targetItem = this.list.find(item => item.index === itemIndex)
       let targetItemSort = targetItem.sort
 
       // Normalizing new grid position

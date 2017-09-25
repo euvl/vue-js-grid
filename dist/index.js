@@ -230,11 +230,11 @@
                 items: {
                     handler: function() {
                         var nextItems = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
-                        this.list = nextItems.map(function(item) {
+                        this.list = nextItems.map(function(item, index) {
                             return {
                                 item: item,
-                                index: item.index,
-                                sort: item.index
+                                index: index,
+                                sort: index
                             };
                         });
                     },
