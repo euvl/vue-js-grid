@@ -81,7 +81,7 @@ Template's scope contains:
 
 Example:
 
-```
+```vue
 <template slot="cell" scope="props">
   <div @click="() => { props.remove() }">
     <div>Data: {{props.item}}</div>
