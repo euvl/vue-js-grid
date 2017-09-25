@@ -1,7 +1,7 @@
 {
   "name": "vue-js-grid",
   "description": "",
-  "version": "1.0.0-rc1",
+  "version": "1.0.0-rc2",
   "author": "euvl <yev.vlasenko@gmail.com>",
   "private": false,
   "scripts": {
