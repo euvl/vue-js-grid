@@ -1,10 +1,17 @@
 ## Vue.js Grid
 
+[![npm version](https://badge.fury.io/js/vue-js-grid.svg)](https://badge.fury.io/js/vue-js-grid)
+[![npm](https://img.shields.io/npm/dm/vue-js-grid.svg)](https://www.npmjs.com/package/vue-js-grid)
+
 #### Fixed size grid for Vue.js
 
 This is very a first version of the plugin. If you find any bugs and/or want to contribute, feel free to create issues, PRs or reach me out on twitter! 👍 🚀
 
 Thanks!
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/1577802/30805846-45ccd718-a1eb-11e7-9963-7aee8e76c9b0.gif">
+</p>
 
 ### Install
 ```
@@ -44,26 +51,32 @@ data () {
 </grid>
 ```
 
+Plugin does **NOT** modify the source data array.
+
+1. Every time permutation is performed you will get a new sorted array in event (`items`).
+2. The same works for removing elements, you will get a new "cleaned" array in your `@remove` event handler.
+3. Currently there is no way to extend data array after event handling. But hopefully I'll come up with a clean way to do it in nearest future.
+
 ### Props
 
 | Name       | Type     | Default   | Description       |
 | ---        | ---      | ---       | ---               |
-| items      | [Object] | []        | |
-| cellWidth  | Number   | 80        | |
-| cellHeight | Number   | 80        | |
-| draggable  | Boolean  | false     | |
+| items      | Array    | []        | Initial array of items |
+| cellWidth  | Number   | 80        | Cell width |
+| cellHeight | Number   | 80        | Cell height |
+| draggable  | Boolean  | false     | Flag that will let you drag grid's cells |
 | dragDelay  | Number   | 0         | @TODO |
-| sortable   | Boolean  | false     | |
+| sortable   | Boolean  | false     | Flag that will let you reorder grid's cells, requires `draggable` to be `true` |
 | center     | Boolean  | false     | @TODO |
 
 ### Events
 
 | Name    | Description |
 | ---     | ---         |
-| @change | |
-| @remove | |
-| @click  | |
-| @sort   | |
+| @change | Occurs on every action that involves reordering array or changing it's length |
+| @remove | Occurs when an element is deleted through template |
+| @click  | Occurs when cell is clicked |
+| @sort   | Occurs when array item order is changed manually |
 
 ### Cell template
 
@@ -88,6 +101,12 @@ Example:
     <div>{{props.index}} / {{props.sort}}</div>
 </template>
 ```
+
+### Why do i need this?
+
+A good example of using a plugin would be rending macOS' `Launchpad` or `Dock`. Check out a demo for a solid example of how the plugin behaves & feels.
+
+Demo: https://euvl.github.io/vue-js-grid/
 
 ### Roadmap
 
