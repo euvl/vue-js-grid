@@ -2,13 +2,14 @@
   <div ref="self"
        :class="className"
        :style="style"
-       @mousedown="mousedown">
+       @mousedown="mousedown"
+       @touchstart="mousedown">
     <slot/>
   </div>
 </template>
 
 <script>
-const CLICK_PIXEL_DISTANCE = 5
+const CLICK_PIXEL_DISTANCE = 4
 
 export default {
   name: 'GridItem',
@@ -109,26 +110,30 @@ export default {
     },
 
     dragStart (event) {
+      let e = event.touches ? event.touches[0] : event
+
       this.zIndex = 2
 
       this.shiftX = this.shiftStartX = this.left
       this.shiftY = this.shiftStartY = this.top
 
-      this.mouseMoveStartX = event.pageX
-      this.mouseMoveStartY = event.pageY
+      this.mouseMoveStartX = e.pageX
+      this.mouseMoveStartY = e.pageY
 
       this.animate = false
       this.dragging = true
 
       document.addEventListener('mousemove', this.documentMouseMove)
-
+      document.addEventListener('touchmove', this.documentMouseMove)
 
       this.$emit('dragstart', this.wrapEvent(event))
     },
 
     drag (event) {
-      let distanceX = event.pageX - this.mouseMoveStartX
-      let distanceY = event.pageY - this.mouseMoveStartY
+      let e = event.touches ? event.touches[0] : event
+
+      let distanceX = e.pageX - this.mouseMoveStartX
+      let distanceY = e.pageY - this.mouseMoveStartY
 
       this.shiftX = distanceX + this.shiftStartX
       this.shiftY = distanceY + this.shiftStartY
@@ -163,6 +168,7 @@ export default {
         }, this.dragDelay)
 
         document.addEventListener('mouseup', this.documentMouseUp)
+        document.addEventListener('touchend', this.documentMouseUp)
       }
     },
 
@@ -191,7 +197,10 @@ export default {
       this.shiftStartY = 0
 
       document.removeEventListener('mousemove', this.documentMouseMove)
+      document.removeEventListener('touchmove', this.documentMouseMove)
+
       document.removeEventListener('mouseup', this.documentMouseUp)
+      document.removeEventListener('touchend', this.documentMouseUp)
 
       let $event = this.wrapEvent(event)
 

@@ -409,13 +409,14 @@
                     };
                 },
                 dragStart: function(event) {
+                    var e = event.touches ? event.touches[0] : event;
                     this.zIndex = 2, this.shiftX = this.shiftStartX = this.left, this.shiftY = this.shiftStartY = this.top, 
-                    this.mouseMoveStartX = event.pageX, this.mouseMoveStartY = event.pageY, this.animate = !1, 
+                    this.mouseMoveStartX = e.pageX, this.mouseMoveStartY = e.pageY, this.animate = !1, 
                     this.dragging = !0, document.addEventListener("mousemove", this.documentMouseMove), 
-                    this.$emit("dragstart", this.wrapEvent(event));
+                    document.addEventListener("touchmove", this.documentMouseMove), this.$emit("dragstart", this.wrapEvent(event));
                 },
                 drag: function(event) {
-                    var distanceX = event.pageX - this.mouseMoveStartX, distanceY = event.pageY - this.mouseMoveStartY;
+                    var e = event.touches ? event.touches[0] : event, distanceX = e.pageX - this.mouseMoveStartX, distanceY = e.pageY - this.mouseMoveStartY;
                     this.shiftX = distanceX + this.shiftStartX, this.shiftY = distanceY + this.shiftStartY;
                     var gridX = Math.round(this.shiftX / this.cellWidth), gridY = Math.round(this.shiftY / this.cellHeight);
                     gridX = Math.min(gridX, this.rowCount - 1), gridY = Math.max(gridY, 0);
@@ -436,7 +437,8 @@
                     var _this2 = this;
                     this.draggable && (this.timer = setTimeout(function() {
                         _this2.dragStart(event);
-                    }, this.dragDelay), document.addEventListener("mouseup", this.documentMouseUp));
+                    }, this.dragDelay), document.addEventListener("mouseup", this.documentMouseUp), 
+                    document.addEventListener("touchend", this.documentMouseUp));
                 },
                 documentMouseMove: function(event) {
                     this.draggable && this.dragging && this.drag(event);
@@ -446,9 +448,10 @@
                     var dx = this.shiftStartX - this.shiftX, dy = this.shiftStartY - this.shiftY, distance = Math.sqrt(dx * dx + dy * dy);
                     this.animate = !0, this.dragging = !1, this.mouseMoveStartX = 0, this.mouseMoveStartY = 0, 
                     this.shiftStartX = 0, this.shiftStartY = 0, document.removeEventListener("mousemove", this.documentMouseMove), 
-                    document.removeEventListener("mouseup", this.documentMouseUp);
+                    document.removeEventListener("touchmove", this.documentMouseMove), document.removeEventListener("mouseup", this.documentMouseUp), 
+                    document.removeEventListener("touchend", this.documentMouseUp);
                     var $event = this.wrapEvent(event);
-                    distance < 5 && this.$emit("click", $event), this.$emit("dragend", $event);
+                    distance < 4 && this.$emit("click", $event), this.$emit("dragend", $event);
                 }
             }
         };
@@ -546,7 +549,8 @@
                     class: _vm.className,
                     style: _vm.style,
                     on: {
-                        mousedown: _vm.mousedown
+                        mousedown: _vm.mousedown,
+                        touchstart: _vm.mousedown
                     }
                 }, [ _vm._t("default") ], 2);
             },
