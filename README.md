@@ -50,7 +50,7 @@ data () {
   </template>
 </grid>
 ```
-[Codesandbox Demo](https://codesandbox.io/s/j23p2opkk3)
+#### [Codesandbox Demo](https://codesandbox.io/s/j23p2opkk3)
 
 Plugin does **NOT** modify the source data array.
 
