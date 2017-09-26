@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: './',
+    publicPath: '/dist/',
     filename: 'build.js'
   },
   module: {
@@ -30,10 +30,11 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'plugin': path.resolve(__dirname, "../dist/index.js")
+      'plugin': path.resolve(__dirname, '../dist/index.js')
     }
   },
   devServer: {
+  //  contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     noInfo: true
   },
@@ -44,6 +45,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+  module.exports.output.publicPath = '.'
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([

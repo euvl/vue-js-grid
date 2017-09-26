@@ -1,11 +1,16 @@
 <template>
   <div id="app">
-    <div>
-      <div class="color-header">
-        <Icon :color="selected" style="width: auto;">
-          Color
-        </Icon>
-      </div>
+    <div style="padding: 10px;">
+      <a class="github-button"
+         href="https://github.com/euvl/vue-js-grid"
+         data-icon="octicon-star"
+         data-show-count="true"
+         aria-label="Star euvl/vue-js-grid on GitHub">Star</a>
+    </div>
+    <div class="color-header">
+      <Icon :color="selected" style="width: auto;">
+        vue-js-grid
+      </Icon>
     </div>
     <grid
       :center="false"
@@ -42,6 +47,7 @@
     </grid>
 -->
   </div>
+
 </template>
 
 <script>
@@ -98,6 +104,10 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  background: #fafafa;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
