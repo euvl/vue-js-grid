@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "deploy": "npm run build && node ./deploy.js"
   },
   "dependencies": {
     "vue": "^2.0.0"

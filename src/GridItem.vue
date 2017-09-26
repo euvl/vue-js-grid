@@ -3,7 +3,7 @@
        :class="className"
        :style="style"
        @mousedown="mousedown"
-       @touchstart="mousedown">
+       @touchstart.stop="mousedown">
     <slot/>
   </div>
 </template>

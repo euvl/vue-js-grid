@@ -550,7 +550,9 @@
                     style: _vm.style,
                     on: {
                         mousedown: _vm.mousedown,
-                        touchstart: _vm.mousedown
+                        touchstart: function($event) {
+                            $event.stopPropagation(), _vm.mousedown($event);
+                        }
                     }
                 }, [ _vm._t("default") ], 2);
             },
