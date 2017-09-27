@@ -214,7 +214,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .v-grid-item-wrapper {
   display: block;
   position: absolute;
@@ -227,13 +227,9 @@ export default {
   transform: translate3d(0px, 0px, 0px);
 
   z-index: 1;
+}
 
-  &.v-grid-item-animate {
-    transition: transform 800ms ease;
-  }
-
-  &.v-grid-item-dragging {
-  //  z-index: 9000 !important;
-  }
+.v-grid-item-animate {
+  transition: transform 800ms ease;
 }
 </style>

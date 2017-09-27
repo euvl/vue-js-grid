@@ -39,6 +39,10 @@ export default {
       type: Array,
       default: () => []
     },
+    gridWidth: {
+      type: Number,
+      default: -1
+    },
     cellWidth: {
       type: Number,
       default: 80,
@@ -84,6 +88,14 @@ export default {
     }
   },
   computed: {
+    gridResponsiveWidth () {
+      if (this.gridWidth < 0) {
+        return this.windowWidth
+      } else {
+        return Math.min(this.windowWidth, this.gridWidth)
+      }
+    },
+
     height () {
       return Math.ceil(this.items.length / this.rowCount) *
         this.cellHeight
@@ -224,12 +236,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-body {
-  margin: 0;
-  padding: 0;
-}
-
+<style>
 .v-grid {
   display: block;
   position: relative;
