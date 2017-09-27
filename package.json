@@ -15,9 +15,6 @@
   "bugs": {
     "url": "https://github.com/euvl/vue-js-grid/issues"
   },
-  "peerDependencies": {
-    "vue": "^2.0.0"
-  },
   "keywords": [
     "vue"
   ],
