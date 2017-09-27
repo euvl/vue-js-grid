@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Grid from 'plugin'
+import Grid from './../src/index'
 
 Vue.use(Grid)
 

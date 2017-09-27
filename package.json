@@ -1,41 +1,65 @@
 {
   "name": "vue-js-grid",
+  "author": "euvl <yev.vlasenko@gmail.com>",
   "description": "Vue.js responsive grid plugin",
   "version": "1.0.1",
-  "author": "euvl <yev.vlasenko@gmail.com>",
+  "main": "dist/vue-js-grid.common.js",
+  "unpkg": "dist/vue-js-grid",
   "private": false,
-  "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  "poi": {
+    "entry": "dev/main.js",
+    "dist": "dev/dist",
+    "homepage": "/vue-js-grid/",
+    "html": {"template": "dev/index.html"}
   },
-  "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/euvl/vue-js-grid.git"
-  },
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/euvl/vue-js-grid/issues"
   },
+  "scripts": {
+    "test": "echo 'no tests!' && npm run lint",
+    "prepublish": "npm run build",
+    "lint": "xo",
+    "build": "bili",
+    "build:example": "poi build",
+    "dev": "poi --port 5000"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "vue": "^2.0.0"
   },
   "keywords": [
     "vue"
   ],
+  "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-latest": "^6.0.0",
     "babel-preset-stage-2": "^6.24.1",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.1",
-    "uglifyjs-webpack-plugin": "^0.4.6",
-    "vue": "^2.0.0",
-    "vue-loader": "^11.1.4",
-    "vue-template-compiler": "^2.0.0",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "bili": "^0.16.0-rc.2",
+    "eslint-config-rem": "^3.0.0",
+    "poi": "^9.1.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-vue": "^2.4.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue": "^2.4.2",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem/prettier",
+    "ignores": [
+      "dev/**"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "vue-app",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ]
   }
 }
