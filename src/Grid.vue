@@ -108,15 +108,15 @@ export default {
     },
 
     rowCount () {
-      return Math.floor(this.windowWidth / this.cellWidth)
+      return Math.floor(this.gridResponsiveWidth / this.cellWidth)
     },
 
     rowShift () {
       if (this.center) {
         let contentWidth = this.items.length * this.cellWidth
-        let rowShift = contentWidth < this.windowWidth
-          ? (this.windowWidth - contentWidth) / 2
-          : (this.windowWidth % this.cellWidth) / 2
+        let rowShift = contentWidth < this.gridResponsiveWidth
+          ? (this.gridResponsiveWidth - contentWidth) / 2
+          : (this.gridResponsiveWidth % this.cellWidth) / 2
 
         return Math.floor(rowShift)
       }
