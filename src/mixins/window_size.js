@@ -5,20 +5,23 @@ export default {
       windowWidth: 0
     }
   },
-  
   created () {
     window.addEventListener('resize', this.getWindowSize)
     this.getWindowSize()
   },
-
+  mounted () {
+    this.getWindowSize()
+  },
   beforeDestroy () {
     window.removeEventListener('resize', this.getWindowSize)
   },
 
   methods: {
     getWindowSize () {
-      this.windowHeight = window.innerHeight
-      this.windowWidth = window.innerWidth
+      if (this.$el) {
+        this.windowHeight = this.$el.clientHeight
+        this.windowWidth = this.$el.clientWidth
+      }
     }
   }
 }
