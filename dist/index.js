@@ -491,12 +491,15 @@
             created: function() {
                 window.addEventListener("resize", this.getWindowSize), this.getWindowSize();
             },
+            mounted: function() {
+                this.getWindowSize();
+            },
             beforeDestroy: function() {
                 window.removeEventListener("resize", this.getWindowSize);
             },
             methods: {
                 getWindowSize: function() {
-                    this.windowHeight = window.innerHeight, this.windowWidth = window.innerWidth;
+                    this.$el && (this.windowHeight = this.$el.clientHeight, this.windowWidth = this.$el.clientWidth);
                 }
             }
         };
@@ -558,7 +561,7 @@
                     on: {
                         mousedown: _vm.mousedown,
                         touchstart: function($event) {
-                            $event.stopPropagation(), _vm.mousedown($event);
+                            return $event.stopPropagation(), _vm.mousedown($event);
                         }
                     }
                 }, [ _vm._t("default") ], 2);
