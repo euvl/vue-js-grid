@@ -237,6 +237,7 @@
                         this.list = nextItems.map(function(item, index) {
                             return {
                                 item: item,
+                                key: item.hasOwnProperty("id") ? item.id : index,
                                 index: index,
                                 sort: index
                             };
@@ -491,12 +492,15 @@
             created: function() {
                 window.addEventListener("resize", this.getWindowSize), this.getWindowSize();
             },
+            mounted: function() {
+                this.getWindowSize();
+            },
             beforeDestroy: function() {
                 window.removeEventListener("resize", this.getWindowSize);
             },
             methods: {
                 getWindowSize: function() {
-                    this.windowHeight = window.innerHeight, this.windowWidth = window.innerWidth;
+                    this.$el && (this.windowHeight = this.$el.clientHeight, this.windowWidth = this.$el.clientWidth);
                 }
             }
         };
@@ -517,7 +521,7 @@
                     style: _vm.style
                 }, _vm._l(_vm.list, function(v) {
                     return _c("GridItem", {
-                        key: v.index,
+                        key: v.key,
                         attrs: {
                             index: v.index,
                             sort: v.sort,
@@ -558,7 +562,7 @@
                     on: {
                         mousedown: _vm.mousedown,
                         touchstart: function($event) {
-                            $event.stopPropagation(), _vm.mousedown($event);
+                            return $event.stopPropagation(), _vm.mousedown($event);
                         }
                     }
                 }, [ _vm._t("default") ], 2);
