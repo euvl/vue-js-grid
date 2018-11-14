@@ -1,7 +1,7 @@
 <template>
   <div class="v-grid" :style="style">
     <GridItem v-for="v in list"
-              :key="v.index"
+              :key="v.key"
               :index="v.index"
               :sort="v.sort"
               :draggable="draggable"
@@ -19,8 +19,8 @@
             :item="v.item"
             :index="v.index"
             :sort="v.sort"
-            :remove="() => { removeItem(v) }"/>
-      </slot>
+            :remove="() => { removeItem(v) }"
+      />
     </GridItem>
   </div>
 </template>
@@ -77,9 +77,11 @@ export default {
     items: {
       handler: function (nextItems = []) {
         this.list = nextItems.map((item, index) => {
+          const key = item.hasOwnProperty('id') ? item.id : index;
           return {
             item,
-            index: index,
+            key,
+            index,
             sort: index
           }
         })

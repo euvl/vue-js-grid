@@ -1,8 +1,8 @@
 {
-  "name": "vue-js-grid",
+  "name": "ascom-vue-js-grid",
   "description": "Vue.js responsive grid plugin",
-  "version": "1.0.1",
-  "author": "euvl <yev.vlasenko@gmail.com>",
+  "version": "1.0.2",
+  "author": "ascom <common.ascom@gmail.com>",
   "private": false,
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
@@ -10,10 +10,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/euvl/vue-js-grid.git"
-  },
-  "bugs": {
-    "url": "https://github.com/euvl/vue-js-grid/issues"
+    "url": "https://github.com/ascomcommon/vue-js-grid.git"
   },
   "keywords": [
     "vue"
