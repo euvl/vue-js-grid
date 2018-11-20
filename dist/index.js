@@ -250,7 +250,7 @@
                     return this.gridWidth < 0 ? this.windowWidth : Math.min(this.windowWidth, this.gridWidth);
                 },
                 height: function() {
-                    return Math.ceil(this.items.length / this.rowCount) * this.cellHeight;
+                    return Math.ceil(this.list.length / this.rowCount) * this.cellHeight;
                 },
                 style: function() {
                     return {
@@ -262,7 +262,7 @@
                 },
                 rowShift: function() {
                     if (this.center) {
-                        var contentWidth = this.items.length * this.cellWidth, rowShift = contentWidth < this.gridResponsiveWidth ? (this.gridResponsiveWidth - contentWidth) / 2 : this.gridResponsiveWidth % this.cellWidth / 2;
+                        var contentWidth = this.list.length * this.cellWidth, rowShift = contentWidth < this.gridResponsiveWidth ? (this.gridResponsiveWidth - contentWidth) / 2 : this.gridResponsiveWidth % this.cellWidth / 2;
                         return Math.floor(rowShift);
                     }
                     return 0;
