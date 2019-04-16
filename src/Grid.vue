@@ -19,7 +19,7 @@
             :item="v.item"
             :index="v.index"
             :sort="v.sort"
-            :remove="() => { removeItem(v) }"/>
+            :remove="() => { removeItem(v) }">
       </slot>
     </GridItem>
   </div>
