@@ -97,7 +97,7 @@ export default {
     },
 
     height () {
-      return Math.ceil(this.items.length / this.rowCount) *
+      return Math.ceil(this.list.length / this.rowCount) *
         this.cellHeight
     },
 
@@ -113,7 +113,7 @@ export default {
 
     rowShift () {
       if (this.center) {
-        let contentWidth = this.items.length * this.cellWidth
+        let contentWidth = this.list.length * this.cellWidth
         let rowShift = contentWidth < this.gridResponsiveWidth
           ? (this.gridResponsiveWidth - contentWidth) / 2
           : (this.gridResponsiveWidth % this.cellWidth) / 2
