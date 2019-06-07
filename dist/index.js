@@ -504,7 +504,7 @@
             }
         };
     }, function(module, exports, __webpack_require__) {
-        exports = module.exports = __webpack_require__(0)(), exports.push([ module.i, ".v-grid{display:block;position:relative;width:100%}", "" ]);
+        exports = module.exports = __webpack_require__(0)(), exports.push([ module.i, ".v-grid{display:block;position:relative;width:100%;overflow:scroll}", "" ]);
     }, function(module, exports, __webpack_require__) {
         exports = module.exports = __webpack_require__(0)(), exports.push([ module.i, ".v-grid-item-wrapper{display:block;position:absolute;box-sizing:border-box;left:0;top:0;user-select:none;transform:translateZ(0);z-index:1}.v-grid-item-animate{transition:transform .8s ease}", "" ]);
     }, function(module, exports, __webpack_require__) {
@@ -546,7 +546,7 @@
                             _vm.removeItem(v);
                         }
                     }) ], 2);
-                }));
+                }), 1);
             },
             staticRenderFns: []
         };

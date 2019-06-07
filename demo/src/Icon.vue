@@ -63,7 +63,7 @@ export default {
 @keyframes shake {
   from {
     transform: rotate(-4deg);
-  },
+  }
 
   to {
     transform: rotate(4deg);

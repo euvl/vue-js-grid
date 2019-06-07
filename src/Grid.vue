@@ -241,5 +241,6 @@ export default {
   display: block;
   position: relative;
   width: 100%;
+  overflow: scroll;
 }
 </style>
