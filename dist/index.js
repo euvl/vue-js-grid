@@ -397,7 +397,8 @@
                         zIndex: zIndex,
                         width: cellWidth + "px",
                         height: cellHeight + "px",
-                        transform: "translate3d(" + this.left + "px, " + top + "px, 0)"
+                        transform: "translate3d(" + this.left + "px, " + top + "px, 0)",
+                        transition: "all 1s"
                     };
                 },
                 left: function() {
@@ -546,7 +547,7 @@
                             _vm.removeItem(v);
                         }
                     }) ], 2);
-                }));
+                }), 1);
             },
             staticRenderFns: []
         };

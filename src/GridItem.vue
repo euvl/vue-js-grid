@@ -87,7 +87,8 @@ export default {
         zIndex,
         width: cellWidth + 'px',
         height: cellHeight + 'px',
-        transform: `translate3d(${left}px, ${top}px, 0)`
+        transform: `translate3d(${left}px, ${top}px, 0)`,
+        transition: `all 1s`
       }
     },
 
