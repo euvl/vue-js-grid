@@ -1,5 +1,7 @@
 ## Vue.js Grid ( Experiment )
 
+## ⚠️ This an experement and not a production-ready plugin
+
 [![npm version](https://badge.fury.io/js/vue-js-grid.svg)](https://badge.fury.io/js/vue-js-grid)
 [![npm](https://img.shields.io/npm/dm/vue-js-grid.svg)](https://www.npmjs.com/package/vue-js-grid)
 
