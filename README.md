@@ -1,13 +1,13 @@
 ## Vue.js Grid ( Experiment )
 
-## ⚠️ This an experement and not a production-ready plugin
+## ⚠️ This is an experiment and not a production-ready plugin
 
 [![npm version](https://badge.fury.io/js/vue-js-grid.svg)](https://badge.fury.io/js/vue-js-grid)
 [![npm](https://img.shields.io/npm/dm/vue-js-grid.svg)](https://www.npmjs.com/package/vue-js-grid)
 
 #### Fixed size grid for Vue.js
 
-This is very a first version of the plugin. If you find any bugs and/or want to contribute, feel free to create issues, PRs, or reach me out on twitter! 👍 🚀
+This is a very first version of the plugin. If you find any bugs and/or want to contribute, feel free to create issues, PRs, or reach out to me on Twitter! 👍 🚀
 
 Thanks!
 
@@ -57,7 +57,7 @@ data () {
 Plugin does **NOT** modify the source data array.
 
 1. Every time permutation is performed you will get a new sorted array in event (`items`).
-2. The same works for removing elements, you will get a new "cleaned" array in your `@remove` event handler.
+2. The same applies to removing elements, you will get a new "cleaned" array in your `@remove` event handler.
 3. Currently there is no way to extend data array after event handling. But hopefully I'll come up with a clean way to do it in nearest future.
 
 ### Props
@@ -104,7 +104,7 @@ Example:
 
 ### Why do I need this?
 
-A good example of using a plugin would be rending macOS' `Launchpad` or `Dock`. Check out a demo for a solid example of how the plugin behaves & feels.
+A good example of using this plugin would be a solution like macOS' `Launchpad` or `Dock`. Check out the demo for a solid example of how the plugin behaves and feels.
 
 Demo: https://euvl.github.io/vue-js-grid/
 
